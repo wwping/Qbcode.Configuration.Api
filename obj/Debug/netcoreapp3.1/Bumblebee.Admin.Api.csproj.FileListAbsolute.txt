@@ -1,0 +1,10 @@
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\bin\Debug\netcoreapp3.1\Bumblebee.Admin.Api.deps.json
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\bin\Debug\netcoreapp3.1\Bumblebee.Admin.Api.dll
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\bin\Debug\netcoreapp3.1\Bumblebee.Admin.Api.pdb
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.Properties.Resources.resources
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.csproj.GenerateResource.cache
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.AssemblyInfoInputs.cache
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.AssemblyInfo.cs
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.dll
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.pdb
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Bumblebee.Admin.Api.csprojAssemblyReference.cache

@@ -1,0 +1,12 @@
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.csprojAssemblyReference.cache
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.Properties.Resources.resources
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.csproj.GenerateResource.cache
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.AssemblyInfoInputs.cache
+C:\绿色\projects\service.core30\api.core\Bumblebee.Admin.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.AssemblyInfo.cs
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.csprojAssemblyReference.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.Properties.Resources.resources
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.csproj.GenerateResource.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.AssemblyInfoInputs.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\obj\Debug\netcoreapp3.1\Qbcode.Gateway.Api.AssemblyInfo.cs
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\bin\Debug\netcoreapp3.1\Qbcode.Gateway.Api.deps.json
+C:\绿色\projects\service.core30\api.core\Qbcode.Gateway.Api\bin\Debug\netcoreapp3.1\Qbcode.Gateway.Api.dll

@@ -1,0 +1,10 @@
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\bin\Release\netcoreapp3.1\Qbcode.Configuration.Api.deps.json
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\bin\Release\netcoreapp3.1\Qbcode.Configuration.Api.dll
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\bin\Release\netcoreapp3.1\Qbcode.Configuration.Api.pdb
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.Properties.Resources.resources
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.csproj.GenerateResource.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.AssemblyInfoInputs.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.AssemblyInfo.cs
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.dll
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.pdb
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.csprojAssemblyReference.cache
