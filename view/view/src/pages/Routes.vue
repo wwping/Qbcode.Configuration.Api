@@ -40,7 +40,8 @@ export default {
                     key:'TimeOut',
                     width:100,
                     render:(h,params)=>{
-                        return  h('InputNumber',{
+                        if(params.row._edit){
+                            return  h('InputNumber',{
                                     props:{ value:params.row.TimeOut,min:0,size:'small' },
                                     style:{width:'60px'},
                                     on:{
@@ -49,6 +50,8 @@ export default {
                                         }
                                     }
                                 })
+                        }
+                        return h('span',params.row.TimeOut);
                     }
                 },
                 {
@@ -56,67 +59,77 @@ export default {
                     key:'Servers',
                     minWidth:640,
                     render(h,params) {
+                        
                         let servers = params.row.Servers,res = [];
                         for(let i = 0; i < servers.length; i++){
                             let c = servers[i];
-                            res.push(h('p',{
-                                style:{
-                                    'margin':'10px 0'
-                                }
-                            },[
-                                h('Select',{
-                                    props:{ value:c.Host,size:'small' },
-                                    style:{ color:c.Available?'green':'red','margin-right':'10px','width':'200px' },
-                                    on:{
-                                        'on-change':(event)=>{
-                                            that.changeServerValue(event,params.row._index,i,'Host');
-                                        }
+                            if(params.row._edit){
+                                res.push(h('p',{
+                                    style:{
+                                        'margin':'10px 0'
                                     }
-                                },that.servers.map(d=>{
-                                    return h('Option',{
-                                        props:{
-                                            value:d.Host,
-                                            label:d.Host
+                                },[
+                                    h('Select',{
+                                        props:{ value:c.Host,size:'small' },
+                                        style:{ color:c.Available?'green':'red','margin-right':'10px','width':'200px' },
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,i,'Host');
+                                            }
                                         }
-                                    })
-                                })),
-                                h('span','MaxRps : '),
-                                h('InputNumber',{
-                                    props:{ value:c.MaxRps,min:0,size:'small' },
-                                    style:{width:'60px','margin-right':'10px'},
-                                    on:{
-                                        'on-change':(event)=>{
-                                            that.changeServerValue(event,params.row._index,i,'MaxRps');
+                                    },that.servers.map(d=>{
+                                        return h('Option',{
+                                            props:{
+                                                value:d.Host,
+                                                label:d.Host
+                                            }
+                                        })
+                                    })),
+                                    h('span','MaxRps : '),
+                                    h('InputNumber',{
+                                        props:{ value:c.MaxRps,min:0,size:'small' },
+                                        style:{width:'60px','margin-right':'10px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,i,'MaxRps');
+                                            }
                                         }
-                                    }
-                                },'MaxRps'),
-                                h('span','Weight : '),
-                                h('InputNumber',{
-                                    props:{ value:c.Weight,min:0,size:'small' },
-                                    style:{width:'60px','margin-right':'10px'},
-                                    on:{
-                                        'on-change':(event)=>{
-                                            that.changeServerValue(event,params.row._index,i,'Weight');
+                                    },'MaxRps'),
+                                    h('span','Weight : '),
+                                    h('InputNumber',{
+                                        props:{ value:c.Weight,min:0,size:'small' },
+                                        style:{width:'60px','margin-right':'10px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,i,'Weight');
+                                            }
                                         }
-                                    }
-                                },'Weight'),
-                                h('Checkbox',{
-                                    props:{ value:c.Standby },
-                                    on:{
-                                        'on-change':(event)=>{
-                                            that.changeServerValue(event,params.row._index,i,'Standby');
+                                    },'Weight'),
+                                    h('Checkbox',{
+                                        props:{ value:c.Standby },
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,i,'Standby');
+                                            }
                                         }
-                                    }
-                                },'Standby'),
-                                h('Button',{
-                                    props:{ type: 'default',size: 'small' },
-                                    on:{
-                                        click: () => {
-                                            that.delServer(params.row,c,i);
+                                    },'Standby'),
+                                    h('Button',{
+                                        props:{ type: 'default',size: 'small' },
+                                        on:{
+                                            click: () => {
+                                                that.delServer(params.row,c,i);
+                                            }
                                         }
-                                    }
-                                },'删除'),
-                            ]));
+                                    },'删除'),
+                                ]));
+                            }else{
+                                res.push(h('p',[
+                                    h('span',{
+                                        style:{ color:c.Available?'green':'red'},
+                                    },c.Host),
+                                    h('span',`-- MaxRps : ${c.MaxRps} -- Weight : ${c.Weight} -- Standby : ${c.Standby}`)
+                                ]))
+                            }
                         }
                         return res;
                     },
@@ -124,42 +137,74 @@ export default {
                 {
                     title:'操作',
                     key:'controller',
-                    width:220,
+                    width:200,
                     fixed: 'right',
                     render:(h,params)=>{
                         let btns = [];
                         if(this.listLoading[params.row.Url] == true){
                             btns.push(h('Spin'));
                         }else{
-                            btns.push(h('Button', {
-                                props: {
-                                    type: 'default',
-                                    size: 'small'
-                                },
-                                style:{
-                                    'margin-right':'10px'
-                                },
-                                on: {
-                                    click: () => {
-                                        this.addServer(params.row);
+
+                            if(params.row._edit){
+                                btns.push(h('Button', {
+                                    props: {
+                                        type: 'default',
+                                        size: 'small'
+                                    },
+                                    style:{
+                                        'margin-right':'4px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.$set(this.data[params.row._index],'_edit',false);
+                                        }
                                     }
-                                }
-                            }, '加个服务'));
-                            btns.push(h('Button', {
-                                props: {
-                                    type: 'success',
-                                    size: 'small'
-                                },
-                                style:{
-                                    'margin-right':'10px'
-                                },
-                                on: {
-                                    click: () => {
-                                        this.saveRouteServer(params.row);
+                                }, '取消'));
+                                btns.push(h('Button', {
+                                    props: {
+                                        type: 'default',
+                                        size: 'small'
+                                    },
+                                    style:{
+                                        'margin-right':'4px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.addServer(params.row);
+                                        }
                                     }
-                                }
-                            }, '保存'));
-                            if(params.row.Url != '*'){
+                                }, '+服务'));
+                                btns.push(h('Button', {
+                                    props: {
+                                        type: 'success',
+                                        size: 'small'
+                                    },
+                                    style:{
+                                        'margin-right':'4px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.saveRouteServer(params.row);
+                                        }
+                                    }
+                                }, '保存'));
+                            }else{
+                                btns.push(h('Button', {
+                                    props: {
+                                        type: 'default',
+                                        size: 'small'
+                                    },
+                                    style:{
+                                        'margin-right':'4px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.$set(this.data[params.row._index],'_edit',true);
+                                        }
+                                    }
+                                }, '编辑'));
+                            }
+                            if(params.row.Url != '*' && !params.row._edit){
                                 btns.push(h('Button', {
                                     props: {
                                         type: 'error',
@@ -240,13 +285,14 @@ export default {
             });
         },
         addServer(row){
-           this.data[row._index].Servers.push({
+            this.data[row._index].Servers.push({
                Host:'',
                Weight:0,
                Available:false,
                MaxRps:0,
                Standby:false,
-               New:true
+               New:true,
+               _edit:true
            })
         },
         deleteRoute(row){
