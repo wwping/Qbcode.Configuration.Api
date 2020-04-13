@@ -36,7 +36,7 @@ export default {
     },
     methods:{
         chartClick(e){
-            this.$axios.get('GetDelayTopUrl',{params:{ name: e.name, index: e.data.value[1], count: 20 }}).then((res)=>{
+            get('GetDelayTopUrl',{params:{ name: e.name, index: e.data.value[1], count: 20 }}).then((res)=>{
                this.detail = res.data.Data;
             });
         },

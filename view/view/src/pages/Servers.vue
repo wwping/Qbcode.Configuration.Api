@@ -7,6 +7,7 @@
                     <span style="margin-left:20px">
                         <Checkbox v-model="update">自动更新列表</Checkbox>
                     </span>
+                    <Button type="default" @click="loadList" size="small">更新</Button>
                 </div>
                 <div class="table">
                     <Table border ref="table" :height="750"  :columns="columns" :data="data"></Table>

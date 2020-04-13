@@ -3,7 +3,7 @@
         <div class="page-wrap">
             <div class="table-wrap">
                 <div class="head flex-display">
-                    <Button type="default" @click="loadData" size="small">更新</Button>
+                    <Button type="default" @click="loadData" size="small" :loading="loading">更新</Button>
                     <span class="flex-1"></span>
                     <Input v-model="url" size="small" placeholder="route url ([abc.beetlex.com;doc.beetlex.com|]/.*) or (/users/.*)" style="width: 500px;" />
                     <Button type="success" @click="addRoute" size="small">新增路由</Button>
@@ -311,8 +311,12 @@ export default {
             });
         },
         loadData(){
+            this.loading = true;
             get('ListRoute').then((res)=>{
+                this.loading = false;
                 this.data = res.data.Data;
+            }).catch(()=>{
+                this.loading = true;
             });
         },
         loadServers(){
