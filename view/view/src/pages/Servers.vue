@@ -157,7 +157,7 @@ export default {
                 if (!valid) {
                     return;
                 } else {
-                    this.$axios.post('AddServer',this.addForm).then((res)=>{
+                    post('AddServer',this.addForm).then((res)=>{
                         this.isAdd = false;
                         this.$refs[name].resetFields();
                         this.loadList();

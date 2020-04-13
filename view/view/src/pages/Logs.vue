@@ -88,7 +88,10 @@ export default {
             this.loadData();
         },
         loadData(){
-            get(`ListLog?p=${this.page.PageIndex}&ps=${this.page.PageSize}`).then((res)=>{
+            get(`ListLog`,{
+                p:this.page.PageIndex,
+                ps:this.page.PageSize
+            }).then((res)=>{
                 this.page = res.data.Data;
             });
         }

@@ -25,6 +25,7 @@
 </template>
 <script>
 import vueJsonEditor from 'vue-json-editor'
+import {get,post} from '../request/index'
 export default {
     props:{
         value:{ type:Boolean, default:true },
@@ -61,14 +62,14 @@ export default {
     },
     methods:{
         loadData(){
-            this.$axios.get(`GetPlugin?name=${this.name}`).then((res)=>{
+            get(`GetPlugin`,{name:this.name}).then((res)=>{
                 res.data.Data.Setting = JSON.parse(res.data.Data.Setting || '{}');
                 this.data = res.data.Data;
             });
         },
         handleSubmit(){
             this.loading = true;
-            this.$axios.post(`SavePluginSetting?name=${this.data.Info.Name}&setting=${JSON.stringify(this.data.Setting)}`).then(()=>{
+            post(`SavePluginSetting?name=${this.data.Info.Name}&setting=${JSON.stringify(this.data.Setting)}`).then(()=>{
                 this.loading = false;
                 this.$Message.success('操作成功');
             }).catch(()=>{

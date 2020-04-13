@@ -38,7 +38,6 @@ export default {
     },
     computed:{
         ...mapState(['loginInfo']),
-        ...mapActions(['setOut']),
         avatar:function(){ 
             return this.loginInfo.auth.islogin && this.loginInfo.user.avatar.length > 0 ?
                 this.static + this.loginInfo.user.avatar:
@@ -53,8 +52,9 @@ export default {
     mounted(){
     },
     methods:{
+        //...mapActions(['setOut']),
         logout(){
-            this.setOut();
+            this.$store.dispatch('LoginInfo/setOut');
             window.location.reload();
         }
     }
