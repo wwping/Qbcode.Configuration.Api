@@ -38,6 +38,10 @@ export const loadLoginInfo = ()=>{
     }) 
 }
 ```
+### 界面预览
+![image](https://github.com/wwping/Qbcode.Configuration.Api/blob/master/1.png?raw=true)
+![image](https://github.com/wwping/Qbcode.Configuration.Api/blob/master/2.png?raw=true)
+![image](https://github.com/wwping/Qbcode.Configuration.Api/blob/master/3.png?raw=true)
 ### 如果你觉得有帮助
 - alipay
 ![image](https://github.com/wwping/Qbcode.Configuration.Api/blob/master/alipay.png?raw=true)
