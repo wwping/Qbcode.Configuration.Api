@@ -292,6 +292,7 @@ namespace Qbcode.Configuration.Api.Controllers
                 OutputServerAddress = this.gateway.OutputServerAddress,
                 StatisticsEnabled = this.gateway.StatisticsEnabled,
                 StatisticsExts = this.gateway.GetStatisticsExts(),
+                this.gateway.GatewayQueueSize
             };
         }
 
@@ -316,6 +317,7 @@ namespace Qbcode.Configuration.Api.Controllers
             this.gateway.HttpServer.SaveOptions();
             this.gateway.OutputServerAddress = body.OutputServerAddress;
             this.gateway.StatisticsEnabled = body.StatisticsEnabled;
+            this.gateway.GatewayQueueSize = body.GatewayQueueSize;
             this.gateway.SetStatisticsExts(body.StatisticsExts);
             this.gateway.SaveConfig();
         }
@@ -380,7 +382,13 @@ namespace Qbcode.Configuration.Api.Controllers
                               Remark = a.Remark,
                               Editor = false,
                               Show = true,
-                              TimeOut = a.TimeOut
+                              TimeOut = a.TimeOut,
+                              AllowCredentials = a.AccessControlAllowCredentials,
+                              AllowHeaders = a.AccessControlAllowHeaders,
+                              AllowMethods = a.AccessControlAllowMethods,
+                              AllowOrigin = a.AccessControlAllowOrigin,
+                              MaxAge = a.AccessControlMaxAge,
+                              Vary = a.Vary
                           });
             list.Add(new RoutesModel
             {
@@ -389,7 +397,13 @@ namespace Qbcode.Configuration.Api.Controllers
                 Remark = this.gateway.Routes.Default.Remark,
                 Editor = false,
                 Show = true,
-                TimeOut = this.gateway.Routes.Default.TimeOut
+                TimeOut = this.gateway.Routes.Default.TimeOut,
+                AllowCredentials = this.gateway.Routes.Default.AccessControlAllowCredentials,
+                AllowHeaders = this.gateway.Routes.Default.AccessControlAllowHeaders,
+                AllowMethods = this.gateway.Routes.Default.AccessControlAllowMethods,
+                AllowOrigin = this.gateway.Routes.Default.AccessControlAllowOrigin,
+                MaxAge = this.gateway.Routes.Default.AccessControlMaxAge,
+                Vary = this.gateway.Routes.Default.Vary,
             });
             list.Sort((RoutesModel x, RoutesModel y) => x.Url.CompareTo(y.Url));
             foreach (RoutesModel gatewayRouteDTO in list)
@@ -421,6 +435,12 @@ namespace Qbcode.Configuration.Api.Controllers
             }
             var res = this.gateway.SetRoute(body.Url, body.Remark, body.HashPattern);
             res.TimeOut = body.TimeOut;
+            res.AccessControlAllowCredentials = body.AllowCredentials;
+            res.AccessControlAllowHeaders = body.AllowHeaders;
+            res.AccessControlAllowMethods = body.AllowMethods;
+            res.AccessControlAllowOrigin = body.AllowOrigin;
+            res.AccessControlMaxAge = body.MaxAge;
+            res.Vary = body.Vary;
             if (body.Servers != null)
             {
                 foreach (RouteServersModel gatewayRouteServerDTO in body.Servers)

@@ -31,6 +31,103 @@ export default {
                 //     align: 'center'
                 // },
                 {
+                    type:'expand',
+                    width:60,
+                    render:(h,params)=>{
+                        if(params.row._edit){
+                            return h('Row',[
+                                h('Col',{props:{span:24},style:{'margin-bottom':'10px'}},[
+                                   
+                                    h('span','Vary : '),
+                                    h('Input',{
+                                        props:{ value:params.row.Vary,min:0,size:'small' },
+                                        style:{width:'100px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,-1,'Vary');
+                                            }
+                                        }
+                                    }),
+                                    h('span',{style:{'margin-left':'20px'}},'MaxAge : '),
+                                    h('InputNumber',{
+                                        props:{ value:params.row.MaxAge,min:0,size:'small' },
+                                        style:{width:'60px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,-1,'MaxAge');
+                                            }
+                                        }
+                                    }),
+                                    h('Checkbox',{
+                                        props:{ value:params.row.AllowCredentials },
+                                        style:{'margin-left':'20px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event,params.row._index,-1,'AllowCredentials');
+                                            }
+                                        }
+                                    },'AllowCredentials'),
+                                ]),
+                                h('Col',{props:{span:12}},[
+                                    h('span','AllowOrigin : '),
+                                    h('Select',{
+                                        props:{ value:(params.row.AllowOrigin||'').split(','),size:'small',multiple:true,filterable:true,'allow-create':true },
+                                        style:{width:'400px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                console.log(event);
+                                                that.changeServerValue(event.join(','),params.row._index,-1,'AllowOrigin');
+                                            },
+                                            'on-create':(event)=>{
+                                               this.origins.push(event);
+                                            }
+                                        }
+                                    },this.origins.map(d=>{
+                                        return h('Option',{
+                                            props:{
+                                                value:d,
+                                                label:d
+                                            }
+                                        })
+                                    })),
+                                ]),
+                                h('Col',{props:{span:12}},[
+                                    h('span','AllowHeaders : '),
+                                    h('Select',{
+                                        props:{ value:(params.row.AllowHeaders||'').split(','),size:'small',multiple:true,filterable:true,'allow-create':true },
+                                        style:{width:'400px'},
+                                        on:{
+                                            'on-change':(event)=>{
+                                                that.changeServerValue(event.join(','),params.row._index,-1,'AllowHeaders');
+                                            },
+                                            'on-create':(event)=>{
+                                               this.headers.push(event);
+                                            }
+                                        }
+                                    },this.headers.map(d=>{
+                                        return h('Option',{
+                                            props:{
+                                                value:d,
+                                                label:d
+                                            }
+                                        })
+                                    })),
+                                ]),
+                            ]);
+                        }else{
+                            return h('Row',[
+                                h('Col',{props:{span:24}},[
+                                    h('span','Vary : ' + (params.row.Vary || '')),
+                                    h('span',{style:{'margin-left':'20px'}},'MaxAge : ' + (params.row.MaxAge || '')),
+                                    h('span',{style:{'margin-left':'20px'}},'AllowCredentials : ' + params.row.AllowCredentials),
+                                ]),
+                                h('Col',{props:{span:12}},'AllowOrigin : ' + (params.row.AllowOrigin || '')),
+                                h('Col',{props:{span:12}},'AllowHeaders : ' + (params.row.AllowHeaders || ''))
+                            ]);
+                        }
+                    }
+                },
+                {
                     title:'路由',
                     key:'Url',
                     width:200
@@ -157,6 +254,7 @@ export default {
                                     on: {
                                         click: () => {
                                             this.$set(this.data[params.row._index],'_edit',false);
+                                            this.$set(this.data[params.row._index],'_expanded',false);
                                         }
                                     }
                                 }, '取消'));
@@ -200,6 +298,7 @@ export default {
                                     on: {
                                         click: () => {
                                             this.$set(this.data[params.row._index],'_edit',true);
+                                            this.$set(this.data[params.row._index],'_expanded',true);
                                         }
                                     }
                                 }, '编辑'));
@@ -225,7 +324,9 @@ export default {
             listLoading:{},
             url:'',
             loading:false,
-            servers:[]
+            servers:[],
+            headers:[],
+            origins:[],
         }
     },
     mounted(){
@@ -315,6 +416,16 @@ export default {
             get('ListRoute').then((res)=>{
                 this.loading = false;
                 this.data = res.data.Data;
+
+                this.headers = this.data.reduce((arr,val)=>{
+                    arr.push(val.AllowHeaders);
+                    return arr;
+                },[]).join(',').split(',').filter(c=>c.length > 0);
+                this.origins = this.data.reduce((arr,val)=>{
+                    arr.push(val.AllowOrigin);
+                    return arr;
+                },[]).join(',').split(',').filter(c=>c.length > 0);
+
             }).catch(()=>{
                 this.loading = true;
             });

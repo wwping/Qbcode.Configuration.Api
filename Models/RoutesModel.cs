@@ -17,6 +17,13 @@ namespace Qbcode.Configuration.Api.Models
         public bool Show { get; set; }
         public long TimeOut { get; set; }
 
+        public bool AllowCredentials { get; set; }
+        public string AllowHeaders { get; set; }
+        public string AllowMethods { get; set; }
+        public string AllowOrigin { get; set; }
+        public string Vary { get; set; }
+        public int MaxAge { get; set; }
+
         public RouteServersModel[] Servers { get; set; } = new RouteServersModel[0];
     }
 

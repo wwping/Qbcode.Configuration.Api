@@ -20,7 +20,10 @@ namespace Qbcode.Configuration.Api.Models
         public int MaxConnections { get; set; } = 0;
         public int MaxWaitQueue { get; set; } = 0;
         public int MaxBodyLength { get; set; } = 0;
+        public int GatewayQueueSize { get; set; } = 0;
 
         public string NoGzipFiles { get; set; } = string.Empty;
+
+        
     }
 }

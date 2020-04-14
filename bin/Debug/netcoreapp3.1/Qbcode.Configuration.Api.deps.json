@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Qbcode.Configuration.Api/1.0.0": {
         "dependencies": {
-          "BeetleX.Bumblebee": "1.3.6.6",
+          "BeetleX.Bumblebee": "1.3.6.7",
           "System.Management": "4.7.0"
         },
         "runtime": {
@@ -23,26 +23,26 @@
           }
         }
       },
-      "BeetleX.Bumblebee/1.3.6.6": {
+      "BeetleX.Bumblebee/1.3.6.7": {
         "dependencies": {
-          "BeetleX.FastHttpApi": "1.8.1.9"
+          "BeetleX.FastHttpApi": "1.8.2.2"
         },
         "runtime": {
           "lib/netcoreapp2.1/Bumblebee.dll": {
-            "assemblyVersion": "1.3.6.6",
-            "fileVersion": "1.3.6.6"
+            "assemblyVersion": "1.3.6.7",
+            "fileVersion": "1.3.6.7"
           }
         }
       },
-      "BeetleX.FastHttpApi/1.8.1.9": {
+      "BeetleX.FastHttpApi/1.8.2.2": {
         "dependencies": {
           "BeetleX": "1.5.1.1",
           "Newtonsoft.Json": "11.0.2"
         },
         "runtime": {
           "lib/netcoreapp2.1/BeetleX.FastHttpApi.dll": {
-            "assemblyVersion": "1.8.1.9",
-            "fileVersion": "1.8.1.9"
+            "assemblyVersion": "1.8.2.2",
+            "fileVersion": "1.8.2.2"
           }
         }
       },
@@ -112,19 +112,19 @@
       "path": "beetlex/1.5.1.1",
       "hashPath": "beetlex.1.5.1.1.nupkg.sha512"
     },
-    "BeetleX.Bumblebee/1.3.6.6": {
+    "BeetleX.Bumblebee/1.3.6.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kv55t39lWA/tpvh4E6NuUmv1WSZbaSHp1RHqLQgaBugTXc/Lo6HOzTnJ0eSCGjFcTF4zcSj7ltZqxMkPzOSTNw==",
-      "path": "beetlex.bumblebee/1.3.6.6",
-      "hashPath": "beetlex.bumblebee.1.3.6.6.nupkg.sha512"
+      "sha512": "sha512-j4OvmX5mVBKpvBItiwYGckMUAMnshdtkvwupmXIPuTkfqk/EhZbWlXCOIJFNUvzCMJp7VsbffB6ptMnA0Yc2IQ==",
+      "path": "beetlex.bumblebee/1.3.6.7",
+      "hashPath": "beetlex.bumblebee.1.3.6.7.nupkg.sha512"
     },
-    "BeetleX.FastHttpApi/1.8.1.9": {
+    "BeetleX.FastHttpApi/1.8.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wt8EbBxuBg+vMY7iKKKY2s7xd+vTymXBEgKjcWCmfWrEDmf4dlEzT/fONJ0XV8xx24+BYg6Y4wkeFmmECQb4Nw==",
-      "path": "beetlex.fasthttpapi/1.8.1.9",
-      "hashPath": "beetlex.fasthttpapi.1.8.1.9.nupkg.sha512"
+      "sha512": "sha512-mcGevexFRPwiiQxLUgFUaJ11nY38dE7i54r1MlcvCa9yjfp40GJg0W5iKa32gonoHPvWtCnjkT0jqV9HmPrpPQ==",
+      "path": "beetlex.fasthttpapi/1.8.2.2",
+      "hashPath": "beetlex.fasthttpapi.1.8.2.2.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",
