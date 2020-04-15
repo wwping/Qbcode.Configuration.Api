@@ -11,18 +11,6 @@
           "lib/netcoreapp2.1/BeetleX.dll": {}
         }
       },
-      "BeetleX.Bumblebee/1.3.6.7": {
-        "type": "package",
-        "dependencies": {
-          "BeetleX.FastHttpApi": "1.8.2.2"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/Bumblebee.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/Bumblebee.dll": {}
-        }
-      },
       "BeetleX.FastHttpApi/1.8.2.2": {
         "type": "package",
         "dependencies": {
@@ -143,6 +131,19 @@
             "rid": "win"
           }
         }
+      },
+      "BeetleX.Bumblebee/1.3.6.7": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "BeetleX.FastHttpApi": "1.8.2.2"
+        },
+        "compile": {
+          "bin/placeholder/BeetleX.Bumblebee.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BeetleX.Bumblebee.dll": {}
+        }
       }
     }
   },
@@ -158,19 +159,6 @@
         "beetlex.nuspec",
         "lib/netcoreapp2.1/BeetleX.dll",
         "lib/netstandard2.0/BeetleX.dll"
-      ]
-    },
-    "BeetleX.Bumblebee/1.3.6.7": {
-      "sha512": "j4OvmX5mVBKpvBItiwYGckMUAMnshdtkvwupmXIPuTkfqk/EhZbWlXCOIJFNUvzCMJp7VsbffB6ptMnA0Yc2IQ==",
-      "type": "package",
-      "path": "beetlex.bumblebee/1.3.6.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "beetlex.bumblebee.1.3.6.7.nupkg.sha512",
-        "beetlex.bumblebee.nuspec",
-        "beetlex200.png",
-        "lib/netcoreapp2.1/Bumblebee.dll"
       ]
     },
     "BeetleX.FastHttpApi/1.8.2.2": {
@@ -426,6 +414,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BeetleX.Bumblebee/1.3.6.7": {
+      "type": "project",
+      "path": "../../../../../桌面/Desktop/桌面/Bumblebee-1.3.6.7/Bumblebee/Bumblebee.csproj",
+      "msbuildProject": "../../../../../桌面/Desktop/桌面/Bumblebee-1.3.6.7/Bumblebee/Bumblebee.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -459,7 +452,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\桌面\\Desktop\\桌面\\Bumblebee-1.3.6.7\\Bumblebee\\Bumblebee.csproj": {
+              "projectPath": "C:\\桌面\\Desktop\\桌面\\Bumblebee-1.3.6.7\\Bumblebee\\Bumblebee.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -471,10 +468,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "BeetleX.Bumblebee": {
-            "target": "Package",
-            "version": "[1.3.6.7, )"
-          },
           "System.Management": {
             "target": "Package",
             "version": "[4.7.0, )"

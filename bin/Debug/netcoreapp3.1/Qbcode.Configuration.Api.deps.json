@@ -23,17 +23,6 @@
           }
         }
       },
-      "BeetleX.Bumblebee/1.3.6.7": {
-        "dependencies": {
-          "BeetleX.FastHttpApi": "1.8.2.2"
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/Bumblebee.dll": {
-            "assemblyVersion": "1.3.6.7",
-            "fileVersion": "1.3.6.7"
-          }
-        }
-      },
       "BeetleX.FastHttpApi/1.8.2.2": {
         "dependencies": {
           "BeetleX": "1.5.1.1",
@@ -96,7 +85,15 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {}
+      "System.Security.Principal.Windows/4.7.0": {},
+      "BeetleX.Bumblebee/1.3.6.7": {
+        "dependencies": {
+          "BeetleX.FastHttpApi": "1.8.2.2"
+        },
+        "runtime": {
+          "Bumblebee.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -111,13 +108,6 @@
       "sha512": "sha512-mcmPqRLVTa7qqVFBI30TlEfmqRh31NHEPGppjXZ5aR1ZZthtJ4i6cS8WChwpZflH0tSaMZLSexD7qAqvk9NXrA==",
       "path": "beetlex/1.5.1.1",
       "hashPath": "beetlex.1.5.1.1.nupkg.sha512"
-    },
-    "BeetleX.Bumblebee/1.3.6.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-j4OvmX5mVBKpvBItiwYGckMUAMnshdtkvwupmXIPuTkfqk/EhZbWlXCOIJFNUvzCMJp7VsbffB6ptMnA0Yc2IQ==",
-      "path": "beetlex.bumblebee/1.3.6.7",
-      "hashPath": "beetlex.bumblebee.1.3.6.7.nupkg.sha512"
     },
     "BeetleX.FastHttpApi/1.8.2.2": {
       "type": "package",
@@ -174,6 +164,11 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "BeetleX.Bumblebee/1.3.6.7": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

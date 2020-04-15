@@ -29,7 +29,7 @@
                         <Row>
                             <Col span="8">
                                  <FormItem label="BufferSize" prop="BufferSize" :label-width="100">
-                                    <InputNumber :max="100000" :min="1" v-model="formValidate.LogCacheSize"></InputNumber>
+                                    <InputNumber :max="100000" :min="1" v-model="formValidate.BufferSize"></InputNumber>
                                 </FormItem>
                             </Col>
                             <Col span="8">

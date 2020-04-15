@@ -17,6 +17,7 @@
 import Status from '../components/Status'
 import DayStatus from '../components/DayStatus'
 import DayDelay from '../components/DayDelay'
+import {get,post} from '../request/index'
 export default {
     name:'Index',
     data(){
@@ -29,6 +30,9 @@ export default {
        //this.ws && this.ws.close();
     },
     mounted(){
+        // get('http://localhost:8082/api/test/test').then((res)=>{
+        //     console.log(res);
+        // })
         // this.ws = new WebSocket("ws://localhost:8082");
         // this.ws.onopen = (evt)=> {
         //     this.ws.send("Hello WebSockets!");

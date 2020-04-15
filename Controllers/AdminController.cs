@@ -362,7 +362,7 @@ namespace Qbcode.Configuration.Api.Controllers
                        Weight = a.Weight,
                        Available = a.Agent.Available,
                        MaxRps = a.MaxRPS,
-                       Standby = a.Standby
+                       Standby = a.Standby,
                    };
         }
 

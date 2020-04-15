@@ -8,3 +8,6 @@ C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\
 C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.dll
 C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.pdb
 C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.csprojAssemblyReference.cache
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\bin\Release\netcoreapp3.1\Bumblebee.dll
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\bin\Release\netcoreapp3.1\Bumblebee.pdb
+C:\绿色\projects\service.core30\api.core\Qbcode.Configuration.Api\obj\Release\netcoreapp3.1\Qbcode.Configuration.Api.csproj.CopyComplete
