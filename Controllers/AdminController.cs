@@ -292,7 +292,10 @@ namespace Qbcode.Configuration.Api.Controllers
                 OutputServerAddress = this.gateway.OutputServerAddress,
                 StatisticsEnabled = this.gateway.StatisticsEnabled,
                 StatisticsExts = this.gateway.GetStatisticsExts(),
-                this.gateway.GatewayQueueSize
+                this.gateway.GatewayQueueSize,
+                this.gateway.AgentMaxConnection,
+                this.gateway.PoolMaxSize,
+                this.gateway.MaxStatsUrls
             };
         }
 
@@ -314,6 +317,9 @@ namespace Qbcode.Configuration.Api.Controllers
             this.gateway.HttpServer.Options.MaxWaitQueue = body.MaxWaitQueue;
             this.gateway.HttpServer.Options.MaxBodyLength = body.MaxBodyLength;
             this.gateway.HttpServer.Options.NoGzipFiles = body.NoGzipFiles;
+            this.gateway.AgentMaxConnection = body.AgentMaxConnection;
+            this.gateway.PoolMaxSize = body.PoolMaxSize;
+            this.gateway.MaxStatsUrls = body.MaxStatsUrls;
             this.gateway.HttpServer.SaveOptions();
             this.gateway.OutputServerAddress = body.OutputServerAddress;
             this.gateway.StatisticsEnabled = body.StatisticsEnabled;

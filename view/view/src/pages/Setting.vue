@@ -29,13 +29,30 @@
                         <Row>
                             <Col span="8">
                                  <FormItem label="BufferSize" prop="BufferSize" :label-width="100">
-                                    <InputNumber :max="100000" :min="1" v-model="formValidate.BufferSize"></InputNumber>
+                                    <InputNumber :max="100000" :min="0" v-model="formValidate.BufferSize"></InputNumber>
                                 </FormItem>
                             </Col>
                             <Col span="8">
                                 <FormItem label="BufferPoolSize" prop="BufferPoolSize" :label-width="100">
-                                    <InputNumber :max="100000" :min="1" v-model="formValidate.BufferPoolSize"></InputNumber>
+                                    <InputNumber :max="100000" :min="0" v-model="formValidate.BufferPoolSize"></InputNumber>
                                 </FormItem>
+                            </Col>
+                            <Col span="8">
+                                <FormItem label="PoolMaxSize" prop="PoolMaxSize" :label-width="100">
+                                    <InputNumber :max="100000" :min="0" v-model="formValidate.PoolMaxSize"></InputNumber>
+                                </FormItem>
+                            </Col>
+                        </Row>
+                    </FormItem>
+                    <FormItem label="Agent">
+                        <Row>
+                            <Col span="8">
+                                <FormItem label="MaxConnection" prop="AgentMaxConnection" :label-width="100">
+                                    <InputNumber :max="1000000" :min="0" v-model="formValidate.AgentMaxConnection"></InputNumber>
+                                </FormItem>
+                            </Col>
+                            <Col span="16">
+                                <span>当某个server的连接数为0时使用此配置</span>
                             </Col>
                         </Row>
                     </FormItem>
@@ -43,21 +60,31 @@
                         <Row>
                             <Col span="8">
                                 <FormItem label="Connection" prop="MaxConnections" :label-width="100">
-                                    <InputNumber :max="1000000" :min="1" v-model="formValidate.MaxConnections"></InputNumber>
+                                    <InputNumber :max="1000000" :min="0" v-model="formValidate.MaxConnections"></InputNumber>
                                 </FormItem>
                             </Col>
                             <Col span="8">
                                 <FormItem label="WaitQueue" prop="MaxWaitQueue" :label-width="100">
-                                    <InputNumber :max="100000" :min="1" v-model="formValidate.MaxWaitQueue"></InputNumber>
+                                    <InputNumber :max="100000" :min="0" v-model="formValidate.MaxWaitQueue"></InputNumber>
                                 </FormItem>
                             </Col>
                             <Col span="8">
                                 <FormItem label="BodyLength" prop="MaxBodyLength" :label-width="100">
-                                    <InputNumber :max="100000" :min="1" v-model="formValidate.MaxBodyLength"></InputNumber>
+                                    <InputNumber :max="100000" :min="0" v-model="formValidate.MaxBodyLength"></InputNumber>
                                 </FormItem>
                             </Col>
                         </Row>
                     </FormItem>
+                    <FormItem label="">
+                        <Row>
+                            <Col span="8">
+                                <FormItem label="MaxStatsUrls" prop="MaxStatsUrls" :label-width="100">
+                                    <InputNumber :max="1000000" :min="0" v-model="formValidate.MaxStatsUrls"></InputNumber>
+                                </FormItem>
+                            </Col>
+                        </Row>
+                    </FormItem>
+                    
                     <FormItem label="ZIP">
                         <Row>
                             <Col span="16">
@@ -112,6 +139,9 @@ export default {
                 ,"OutputServerAddress":false
                 ,"StatisticsEnabled":true
                 ,"StatisticsExts":""
+                ,'AgentMaxConnection':500
+                ,'PoolMaxSize':0
+                ,'MaxStatsUrls':0
             },
             ruleValidate:{
 

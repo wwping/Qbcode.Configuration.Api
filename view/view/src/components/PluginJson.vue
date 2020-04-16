@@ -13,7 +13,7 @@
                             <vue-json-editor ref="jsoneditor" v-model="data.Setting" style="height:400px" mode="code" :exapndedOnStart="true" :showBtns="false"></vue-json-editor>
                         </div>
                     </FormItem>
-                    <FormItem style="t-c">
+                    <FormItem>
                         <div class="t-c">
                             <Button type="primary" :loading="loading" @click="handleSubmit('addForm')">确定保存</Button>
                         </div>
