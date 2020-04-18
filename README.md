@@ -1,5 +1,9 @@
 # Qbcode.Configuration.Api
 Bumblebee网关的可视化管理的 api 和 vue界面，仿照作者的 配置插件所改，
+
+# 在使用之前
+插件包括了一些新的功能  请使用  https://github.com/wwping/Bumblebee 这个修改过的库，主要功能会保持原项目同步更新
+
 ### 加载插件
 ```
 g = new Gateway();

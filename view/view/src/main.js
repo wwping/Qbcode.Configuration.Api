@@ -24,6 +24,11 @@ const tologin = ()=>{
 }
 
 import {loadLoginInfo} from './apis/login'
+
+setInterval(() => {
+    loadLoginInfo();
+}, 6000);
+
 router.beforeEach((to, from,next) => {
     let issuccess = store.getters['LoginInfo/isSuccess']();
     if( issuccess ){

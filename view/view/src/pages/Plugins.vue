@@ -11,10 +11,12 @@
             </div>
         </div>
         <PluginJson v-model="isEdit" :name="name" @on-visible-change="(val)=>{ isEdit = val;}"></PluginJson>
+        <RunInfo v-model="isRunInfo" :name="name" @on-visible-change="(val)=>{ isRunInfo = val;}"></RunInfo>
     </div>
 </template>
 <script>
 import PluginJson from '../components/PluginJson'
+import RunInfo from '../components/RunInfo'
 import {get,post} from '../request/index'
 export default {
     name:'Plugins',
@@ -32,7 +34,7 @@ export default {
                 {
                     title:'名称',
                     key:'Name',
-                    minWidth:260
+                    minWidth:220
                 },
                 {
                     title:'类型',
@@ -52,11 +54,11 @@ export default {
                     sortable:true,
                     width:100
                 },
-                {
-                    title:'程序集',
-                    key:'Assembly',
-                    minWidth:250
-                },
+                // {
+                //     title:'程序集',
+                //     key:'Assembly',
+                //     minWidth:250
+                // },
                 {
                     title:'说明',
                     key:'Description',
@@ -105,7 +107,7 @@ export default {
                     title:'操作',
                     key:'controller',
                     fixed: 'right',
-                    width:85,
+                    width:160,
                     render:(h,params)=>{
                         let btns = [];
                         btns.push(h('Button', {
@@ -113,6 +115,7 @@ export default {
                                 type: 'primary',
                                 size: 'small'
                             },
+                            style:{'margin-right':'4px'},
                             on: {
                                 click: () => {
                                     this.name = params.row.Name;
@@ -120,15 +123,28 @@ export default {
                                 }
                             }
                         }, '配置'));
+                        btns.push(h('Button', {
+                            props: {
+                                type: 'default',
+                                size: 'small'
+                            },
+                            on: {
+                                click: () => {
+                                    this.name = params.row.Name;
+                                    this.isRunInfo = true;
+                                }
+                            }
+                        }, '运行信息'));
                         return btns;
                     }
                 }
             ],
             isEdit:false,
+            isRunInfo:false,
             name:''
         };
     },
-    components:{PluginJson},
+    components:{PluginJson,RunInfo},
     mounted(){
         this.loadData();
     },

@@ -24,7 +24,10 @@ namespace Qbcode.Configuration.Api.Models
         public int AgentMaxConnection { get; set; } = 0;
         public int PoolMaxSize { get; set; } = 0;
         public int MaxStatsUrls { get; set; } = 0;
-        
+        public int BufferPoolMaxMemory { get; set; } = 0;
+
+        public bool UseIPv6 { get; set; } = false;
+
         public string NoGzipFiles { get; set; } = string.Empty;
 
 

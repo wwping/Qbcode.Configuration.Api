@@ -177,6 +177,25 @@ namespace Qbcode.Configuration.Api.Controllers
             }
         }
 
+
+        /// <summary>
+        /// 插件运行情况
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="p"></param>
+        /// <param name="ps"></param>
+        /// <returns></returns>
+        public PluginRunInfo RunInfo(string name, int p = 1, int ps = 10)
+        {
+            IPlugin plugin = this.gateway.PluginCenter.GetPlugin(name);
+            if (plugin != null)
+            {
+                return plugin.RunInfo(p, ps);
+            }
+
+            return new PluginRunInfo();
+        }
+
         #endregion
 
         #region 服务设置
@@ -289,6 +308,8 @@ namespace Qbcode.Configuration.Api.Controllers
                 this.gateway.HttpServer.Options.MaxWaitQueue,
                 this.gateway.HttpServer.Options.MaxBodyLength,
                 this.gateway.HttpServer.Options.NoGzipFiles,
+                this.gateway.HttpServer.Options.UseIPv6,
+                this.gateway.HttpServer.Options.BufferPoolMaxMemory,
                 OutputServerAddress = this.gateway.OutputServerAddress,
                 StatisticsEnabled = this.gateway.StatisticsEnabled,
                 StatisticsExts = this.gateway.GetStatisticsExts(),
@@ -317,6 +338,9 @@ namespace Qbcode.Configuration.Api.Controllers
             this.gateway.HttpServer.Options.MaxWaitQueue = body.MaxWaitQueue;
             this.gateway.HttpServer.Options.MaxBodyLength = body.MaxBodyLength;
             this.gateway.HttpServer.Options.NoGzipFiles = body.NoGzipFiles;
+            this.gateway.HttpServer.Options.UseIPv6 = body.UseIPv6;
+            this.gateway.HttpServer.Options.BufferPoolMaxMemory = body.BufferPoolMaxMemory;
+
             this.gateway.AgentMaxConnection = body.AgentMaxConnection;
             this.gateway.PoolMaxSize = body.PoolMaxSize;
             this.gateway.MaxStatsUrls = body.MaxStatsUrls;

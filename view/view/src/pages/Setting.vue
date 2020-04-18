@@ -82,9 +82,13 @@
                                     <InputNumber :max="1000000" :min="0" v-model="formValidate.MaxStatsUrls"></InputNumber>
                                 </FormItem>
                             </Col>
+                            <Col span="16">
+                                <FormItem label="BufferPoolMaxMemory" prop="BufferPoolMaxMemory" :label-width="300">
+                                    <InputNumber :max="1000000" :min="0" v-model="formValidate.BufferPoolMaxMemory"></InputNumber>
+                                </FormItem>
+                            </Col>
                         </Row>
                     </FormItem>
-                    
                     <FormItem label="ZIP">
                         <Row>
                             <Col span="16">
@@ -99,18 +103,33 @@
                             </Col>
                         </Row>
                     </FormItem>
-                    <FormItem label="" prop="OutputServerAddress">
-                        <Checkbox v-model="formValidate.OutputServerAddress">OutputServerAddress</Checkbox>
-                    </FormItem> 
-                    <FormItem label="" prop="StatisticsEnabled">
-                        <Checkbox v-model="formValidate.StatisticsEnabled">StatisticsEnabled</Checkbox>
-                    </FormItem> 
+                    <FormItem label="">
+                        <Row>
+                            <Col span="8">
+                                <FormItem label="" prop="OutputServerAddress">
+                                    <Checkbox v-model="formValidate.OutputServerAddress">OutputServerAddress</Checkbox>
+                                </FormItem> 
+                            </Col>
+                            <Col span="8">
+                                <FormItem label="" prop="StatisticsEnabled">
+                                    <Checkbox v-model="formValidate.StatisticsEnabled">StatisticsEnabled</Checkbox>
+                                </FormItem> 
+                            </Col>
+                            <Col span="8">
+                                <FormItem label="" prop="UseIPv6">
+                                    <Checkbox v-model="formValidate.UseIPv6" disabled>UseIPv6</Checkbox>
+                                </FormItem> 
+                            </Col>
+                        </Row>
+                    </FormItem>
                     <FormItem label="StatisticsExts" prop="StatisticsExts">
                         <Input v-model="formValidate.StatisticsExts" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
                     </FormItem>
                     <FormItem>
-                        <Button type="primary" :loading="loading" @click="handleSubmit('formValidate')">保存一下</Button>
-                        <Button @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
+                        <div class="t-c">
+                            <Button type="primary" :loading="loading" @click="handleSubmit('formValidate')">保存一下</Button>
+                            <Button @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
+                        </div>
                     </FormItem>
                 </Form>
             </div>
@@ -142,6 +161,8 @@ export default {
                 ,'AgentMaxConnection':500
                 ,'PoolMaxSize':0
                 ,'MaxStatsUrls':0
+                ,'UseIPv6':false
+                ,'BufferPoolMaxMemory':0,
             },
             ruleValidate:{
 
